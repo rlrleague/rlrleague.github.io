@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Red Light Racing League F1 2020</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Exo+2:wght@500;700;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#000;--asphalt:#141414;--line:#2a2a2a;--red:#e3001b;--hot:#ff2a3d;--deep:#6b000e;--bone:#f2f2f2;--grey:#a3a3a3;--rgb:227,0,27;
+--display:"Exo 2","Arial Black",Impact,sans-serif;--body:"Manrope","Segoe UI",Roboto,Arial,sans-serif;
+color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--black);color:var(--bone);font:400 1.05rem/1.6 var(--body)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#000;z-index:20}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--hot);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:rgba(0,0,0,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:18px;height:62px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:1.35rem var(--display);flex:none}
+.mark{width:38px;height:38px;display:block}
+nav{display:flex;gap:20px;overflow-x:auto;white-space:nowrap;min-width:0;scrollbar-width:none}
+nav a{text-decoration:none;color:var(--grey);font-weight:600;font-size:.95rem;padding:6px 0;border-bottom:2px solid transparent}
+nav a:hover{color:var(--bone);border-color:var(--red)}
+nav a.cta{color:#fff;background:var(--red);padding:6px 14px;border-radius:6px;border:0}
+
+.hero{position:relative;overflow:hidden;padding:44px 0 80px;
+background:radial-gradient(circle at 88% 8%,rgba(var(--rgb),.38),transparent 45%),
+linear-gradient(115deg,transparent 0 72%,var(--red) 72% 73.5%,transparent 73.5% 76%,var(--deep) 76% 77%,transparent 77%),
+repeating-linear-gradient(45deg,#0c0c0c 0 3px,#000 3px 6px)}
+.lights{display:flex;gap:10px;margin-bottom:26px}
+.pod{background:var(--asphalt);border:2px solid var(--line);border-radius:8px;padding:8px;display:flex;flex-direction:column;gap:8px}
+.bulb{width:clamp(22px,6vw,34px);aspect-ratio:1;border-radius:50%;background:#2a0006;animation:on .01s var(--d) forwards,off .01s 3.4s forwards}
+@keyframes on{to{background:var(--hot);box-shadow:0 0 18px 4px rgba(227,0,27,.75)}}
+@keyframes off{to{background:#2a0006;box-shadow:none}}
+h1{font:clamp(5.5rem,30vw,14rem)/.85 "Racing Sans One",var(--display);margin:0;color:#e9ecef;
+background:linear-gradient(180deg,#fff 5%,#8f959d 55%,#eceff2 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 5px 0 var(--deep))}
+.streak{height:4px;width:min(100%,560px);background:linear-gradient(90deg,var(--hot),transparent);box-shadow:0 0 24px 3px rgba(var(--rgb),.6);margin:18px 0 22px}
+.tag{font:clamp(1.3rem,3.6vw,1.9rem)/1.2 var(--display);margin:0 0 12px;max-width:26ch}
+.lead{color:var(--grey);max-width:54ch;margin:0 0 30px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 26px;border-radius:6px;font-weight:600;text-decoration:none;border:2px solid var(--red)}
+.btn.main{background:linear-gradient(var(--hot),var(--red));color:#fff;box-shadow:0 6px 24px rgba(var(--rgb),.35)}
+.btn.main:hover{background:var(--hot)}
+.btn.alt:hover{background:var(--deep)}
+
+section{padding:68px 0;border-top:1px solid var(--line)}
+h2{font:clamp(1.8rem,5vw,2.6rem)/1.1 var(--display);margin:0 0 8px;display:flex;align-items:center;gap:14px}
+h2::before{content:"";flex:none;width:34px;height:20px;background:conic-gradient(var(--red) 25%,#000 0 50%,var(--red) 0 75%,#000 0) 0 0/10px 10px;border:1px solid var(--red)}
+.sub{color:var(--grey);margin:0 0 30px;max-width:60ch}
+
+.rules{list-style:none;margin:0 0 28px;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.rules li{padding:18px 20px;border-left:4px solid var(--red);border-radius:0 10px 10px 0;background:linear-gradient(90deg,#1b1b1b,var(--asphalt))}
+.rules strong{display:block;font:1.1rem var(--display);margin-bottom:4px}
+.rules span{color:var(--grey)}
+.reg-box{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:22px 24px;border:2px solid var(--red);border-radius:12px;background:linear-gradient(100deg,var(--deep),#120003 70%)}
+.reg-box b{font:1.35rem var(--display);display:block}
+.reg-box span{color:#d9b8bd}
+
+.cal{list-style:none;margin:0;padding:0;display:grid;gap:10px 32px}
+.cal li{display:grid;grid-template-columns:48px 1fr auto;gap:14px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.cal .r{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;font:1.4rem var(--display);color:#fff;background:linear-gradient(var(--hot),#b3000f)}
+.cal .g{font-weight:600}
+.cal .t{display:block;color:var(--grey);font-size:.9rem;font-weight:400}
+.cal .d{color:var(--grey);font-size:.9rem;text-align:right}
+.cal li.done .r{opacity:.45}
+.cal li.done .g{color:var(--grey)}
+.cal li.next .r{box-shadow:0 0 18px 3px rgba(var(--rgb),.7)}
+.cal li.next .d{color:var(--bone);font-weight:600}
+@media(min-width:860px){.cal{grid-template-columns:1fr 1fr;grid-template-rows:repeat(var(--rows,9),auto);grid-auto-flow:column}}
+.weekend{display:grid;grid-template-columns:1fr 1fr;margin-top:34px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--asphalt)}
+.weekend div{padding:18px 22px}
+.weekend div+div{border-left:3px solid var(--red)}
+.weekend small{color:var(--hot);font-weight:600;display:block}
+.weekend b{font:1.3rem var(--display);display:block}
+.weekend em{font:2.1rem/1.1 var(--display)}
+
+.tabs{display:flex;gap:8px;margin-bottom:16px}
+.tabs button{font:600 1rem var(--body);color:var(--grey);background:none;border:2px solid var(--line);border-radius:999px;padding:9px 22px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--red);border-color:var(--red);color:#fff}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--asphalt)}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-weight:600;color:var(--grey);font-size:.9rem;border-bottom:2px solid var(--red)}
+tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:#1d1d1d}
+td.n{font:1rem var(--display);color:var(--hot);width:3.2rem}
+td.no{color:var(--grey);width:3rem}
+td.pts,th.pts{text-align:right;font-family:var(--display)}
+th.pts{font-family:var(--body)}
+tbody tr:nth-child(2) td.n{color:#c9ced6}
+tbody tr:nth-child(3) td.n{color:#cd7f32}
+tbody tr:first-child td{background:linear-gradient(90deg,var(--deep),transparent)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px}
+
+.steps{list-style:none;margin:0 0 32px;padding:0;counter-reset:s;display:grid;gap:14px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2.8rem 1fr;gap:14px;align-items:start}
+.steps li::before{content:counter(s);font:1.3rem/1 var(--display);background:linear-gradient(var(--hot),#b3000f);color:#fff;width:2.8rem;height:2.8rem;display:grid;place-items:center;border-radius:10px}
+.steps p{margin:0;padding-top:8px}
+
+footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--grey)}
+footer .wrap{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+footer .mark{width:44px;height:44px}
+footer nav{margin-left:auto}
+.check{height:10px;background:conic-gradient(#fff 25%,#000 0 50%,#fff 0 75%,#000 0) 0 0/10px 10px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bulb{animation:none}}
+@media(max-width:560px){.cal li{grid-template-columns:48px 1fr}.cal .d{grid-column:2;text-align:left}.brand span{display:none}.weekend em{font-size:1.7rem}}
+
+/* typography polish */
+h2{text-transform:uppercase;letter-spacing:.03em;font-weight:800}
+.tag{font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.brand{font-family:"Racing Sans One",var(--display);letter-spacing:.04em}
+nav a{text-transform:uppercase;letter-spacing:.07em;font-size:.82rem;font-weight:700}
+.btn,.tabs button{text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+.tabs button{font-size:.9rem}
+.rules strong,.reg-box b,.weekend b{letter-spacing:.02em;font-weight:700}
+.weekend em,.cal .r,.steps li::before{font-weight:800}
+th{text-transform:uppercase;letter-spacing:.08em;font-size:.78rem}
+td.pts,td.n,.cal .r{font-variant-numeric:tabular-nums}
+td.pts{font-weight:800;font-size:1.05rem}
+.lead,.sub,.rules span{line-height:1.65}
+.upd{display:block;margin-top:6px;font-size:.82rem;color:var(--grey);letter-spacing:.02em}
+.upd::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--hot);margin-right:8px;box-shadow:0 0 8px 2px rgba(var(--rgb),.7)}
+
+
+.wm{overflow:hidden;background:#000;user-select:none;pointer-events:none}
+.wm .track{display:flex;width:max-content;animation:wm 38s linear infinite}
+.wm .half{display:flex;flex:none}
+.wm span{flex:none;padding:0 7px;font:700 .8rem/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:#fff;opacity:.55;white-space:nowrap}
+.wm span::after{content:"\2022";margin-left:14px;color:var(--hot);opacity:1}
+.wm-top{padding:8px 0 7px;border-bottom:1px solid #151515}
+.wm-bot{padding:14px 0 18px}
+.wm-bot .track{animation-direction:reverse}
+@keyframes wm{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.wm .track{animation:none}}
+.lg{display:flex;gap:10px;margin:0 0 22px;flex-wrap:wrap}
+.lg button{font:800 1.05rem var(--display);letter-spacing:.08em;color:var(--grey);background:var(--asphalt);border:2px solid var(--line);border-radius:10px;padding:9px 30px;cursor:pointer}
+.lg button:hover{border-color:var(--red);color:var(--bone)}
+.lg button[aria-selected=true]{background:linear-gradient(var(--hot),var(--red));border-color:var(--red);color:#fff;box-shadow:0 6px 20px rgba(var(--rgb),.35)}
+
+/* F1 fun */
+.prog{position:absolute;left:0;right:0;bottom:-1px;height:3px;pointer-events:none}
+.prog i{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,var(--deep),var(--hot));box-shadow:0 0 10px var(--hot)}
+.prog b{position:absolute;top:-14px;left:0;font-size:16px;line-height:1;transform:translateX(-50%);font-weight:400}
+.radio{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:9px 16px;border:1px solid var(--line);border-left:3px solid var(--hot);border-radius:8px;background:rgba(20,20,20,.8);font:600 .88rem var(--body);color:var(--grey);max-width:100%}
+.radio b{color:var(--hot);letter-spacing:.1em;font-size:.72rem;text-transform:uppercase;flex:none}
+.radio span{transition:opacity .35s}
+.radio .rec{width:8px;height:8px;border-radius:50%;background:var(--hot);animation:blink 1s steps(2) infinite;flex:none}
+@keyframes blink{50%{opacity:.15}}
+.racer{position:absolute;right:-60px;bottom:14px;font-size:34px;line-height:1;animation:drive 9s linear infinite;pointer-events:none;filter:drop-shadow(-30px 0 0 rgba(var(--rgb),.0))}
+.racer::after{content:"";position:absolute;left:100%;top:55%;width:90px;height:3px;background:linear-gradient(90deg,rgba(var(--rgb),.8),transparent);box-shadow:0 8px 0 -1px rgba(255,255,255,.25),0 -8px 0 -1px rgba(255,255,255,.18)}
+@keyframes drive{0%,35%{transform:translateX(0)}100%{transform:translateX(calc(-100vw - 240px))}}
+.hero .wrap{position:relative}
+.lights.again{cursor:pointer}
+.hint{font-size:.78rem;color:var(--grey);margin:-14px 0 20px;letter-spacing:.04em}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
+.card{padding:22px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(160deg,#1b1b1b,var(--asphalt))}
+.card h3{font:800 1.1rem var(--display);text-transform:uppercase;letter-spacing:.04em;margin:0 0 6px}
+.card p{margin:0 0 14px;color:var(--grey)}
+.rb{display:flex;gap:10px;margin:16px 0;padding:10px;background:#0a0a0a;border:2px solid var(--line);border-radius:10px;width:max-content;max-width:100%}
+.rb span{width:clamp(26px,8vw,38px);aspect-ratio:1;border-radius:50%;background:#2a0006;transition:background .05s}
+.rb span.on{background:var(--hot);box-shadow:0 0 16px 3px rgba(var(--rgb),.7)}
+#rres{font:800 1.6rem var(--display);color:var(--bone);margin:0 0 4px;min-height:1.2em}
+#rbest{font-size:.9rem;color:var(--grey);margin:0 0 14px;min-height:1.4em}
+.fact{min-height:5.2em;font-size:1.08rem;color:var(--bone)!important}
+.fact::before{content:"💡 ";}
+.flags{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;margin-top:16px}
+.fl{display:flex;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--asphalt);transition:transform .2s,border-color .2s}
+.fl:hover{transform:translateY(-4px) rotate(-1deg);border-color:var(--hot)}
+.fl i{flex:none;width:34px;height:24px;border-radius:3px;box-shadow:0 0 0 1px rgba(255,255,255,.2);animation:wave 2.4s ease-in-out infinite;transform-origin:left center}
+.fl:nth-child(2n) i{animation-delay:.4s}.fl:nth-child(3n) i{animation-delay:.8s}
+@keyframes wave{50%{transform:skewY(-6deg) scaleX(.94)}}
+.fl b{display:block;font:700 .95rem var(--display)}.fl span{font-size:.82rem;color:var(--grey);line-height:1.3;display:block}
+.fg{background:#00a651}.fy{background:#ffd800}.fr{background:#e10600}.fb{background:#1f6bff}.fw{background:#f2f2f2}
+.fc{background:conic-gradient(#fff 25%,#000 0 50%,#fff 0 75%,#000 0) 0 0/8px 8px}
+.tyres{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap}
+.tyre{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;font:800 .85rem var(--display);color:#111;background:#111;border:5px solid var(--c);box-shadow:inset 0 0 0 3px #1a1a1a;color:#fff;transition:transform .4s}
+.tyre:hover{transform:rotate(360deg)}
+.cal .f{display:block;margin-top:2px;font-size:.78rem;font-weight:600;color:var(--hot);letter-spacing:.02em}
+.cal li.next .g{color:#fff}
+.cal li.next{animation:pulse 2s ease-in-out infinite;border-radius:10px}
+@keyframes pulse{50%{background:rgba(var(--rgb),.12)}}
+.cal li:not(.done):hover .r{transform:scale(1.08) rotate(-4deg)}
+.cal .r{transition:transform .2s}
+td.n{white-space:nowrap}
+.pts-bar{display:block;height:3px;margin-top:5px;border-radius:2px;background:linear-gradient(90deg,var(--deep),var(--hot));transform-origin:right}
+.check{animation:slide 1.2s linear infinite}
+@keyframes slide{to{background-position:20px 0}}
+.fall{position:fixed;top:-40px;z-index:50;pointer-events:none;font-size:26px;animation:fall var(--t) linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(var(--r))}}
+.toast{position:fixed;left:50%;top:22%;transform:translateX(-50%);z-index:51;font:800 clamp(2rem,9vw,5rem) "Racing Sans One",var(--display);color:#fff;text-shadow:0 0 30px var(--hot),0 5px 0 var(--deep);pointer-events:none;animation:pop 1.8s forwards;white-space:nowrap}
+@keyframes pop{0%{opacity:0;transform:translateX(-50%) scale(.5)}15%{opacity:1;transform:translateX(-50%) scale(1.1)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) scale(1) translateY(-30px)}}
+@media(prefers-reduced-motion:reduce){.racer,.fl i,.cal li.next,.check,.radio .rec{animation:none}}
+@media(max-width:560px){.racer{font-size:26px;bottom:8px}}
+.champ{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:0 0 20px;padding:18px 22px;border:2px solid #ffc72c;border-radius:12px;background:linear-gradient(100deg,#4a3500,#140e00 75%);position:relative;overflow:hidden}
+.champ::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.18) 50%,transparent 60%);transform:translateX(-100%);animation:shine 3.5s ease-in-out infinite}
+@keyframes shine{60%,100%{transform:translateX(100%)}}
+.champ .cup{font-size:2.6rem;line-height:1}
+.champ small{display:block;color:#ffc72c;font:800 .75rem var(--body);letter-spacing:.14em;text-transform:uppercase}
+.champ b{display:block;font:800 1.5rem/1.15 var(--display);color:#fff}
+.champ span{color:#e6d3a0}
+.champ-row td{background:linear-gradient(90deg,#4a3500,transparent)!important}
+.champ-row td.n{color:#ffc72c}
+.cb{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:999px;background:#ffc72c;color:#1a1200;font:800 .68rem var(--body);letter-spacing:.08em;text-transform:uppercase;vertical-align:middle}
+@media(prefers-reduced-motion:reduce){.champ::after{animation:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="mark" viewBox="0 0 100 100"><defs><clipPath id="mc"><rect width="100" height="100" rx="14"/></clipPath></defs><image href="data:image/webp;base64,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" width="100" height="100" clip-path="url(#mc)"/></symbol></svg>
+
+<div class="wm wm-top" aria-hidden="true"><div class="track"><div class="half"><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span></div><div class="half"><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span></div></div></div>
+<header class="top"><div class="wrap bar">
+  <a class="brand" href="#top" aria-label="RLR, наверх"><svg class="mark" viewBox="0 0 100 100" role="img" aria-label="Логотип RLR"><use href="#mark"/></svg><span>RLR</span></a>
+  <nav aria-label="Разделы">
+    <a href="#rules">Правила</a><a href="#paddock">Паддок</a><a class="reg" href="#" target="_blank" rel="noopener">Регламент</a><a href="#calendar">Календарь</a><a href="#standings">Зачёт</a><a class="cta discord" href="#">Discord</a>
+  </nav>
+<div class="prog" aria-hidden="true"><i></i><b>🏎️</b></div></div></header>
+
+<main id="top">
+  <div class="hero"><div class="wrap">
+    <div class="lights again" id="lights" title="Нажми, чтобы повторить старт">
+      <div class="pod"><i class="bulb" style="--d:.4s"></i><i class="bulb" style="--d:.4s"></i></div>
+      <div class="pod"><i class="bulb" style="--d:1s"></i><i class="bulb" style="--d:1s"></i></div>
+      <div class="pod"><i class="bulb" style="--d:1.6s"></i><i class="bulb" style="--d:1.6s"></i></div>
+      <div class="pod"><i class="bulb" style="--d:2.2s"></i><i class="bulb" style="--d:2.2s"></i></div>
+      <div class="pod"><i class="bulb" style="--d:2.8s"></i><i class="bulb" style="--d:2.8s"></i></div>
+    </div>
+    <p class="hint" aria-hidden="true">↑ нажми на огни — и старт повторится</p>
+    <h1>RLR</h1>
+    <div class="streak" aria-hidden="true"></div>
+    <p class="tag">Red Light Racing League F1 2020</p>
+    <p class="lead">Сообщество гонщиков в Discord: 288 участников, 18 этапов за сезон, личный зачёт и зачёт команд, который обновляется после каждой гонки.</p>
+    <div class="btns">
+      <a class="btn main discord" href="#">Вступить в Discord</a>
+      <a class="btn alt reg" href="#" target="_blank" rel="noopener">Регламент</a>
+      <a class="btn alt" href="#calendar">Календарь</a>
+    </div>
+    <div class="radio" aria-live="off"><i class="rec"></i><b>Радио</b><span id="rtxt">Бокс, бокс. Меняем шины.</span></div>
+    <div class="racer" aria-hidden="true">🏎️</div>
+  </div></div>
+
+  <section id="rules"><div class="wrap">
+    <h2>Как проходит лига</h2>
+    <p class="sub">Коротко о главном. Все подробности есть в регламенте.</p>
+    <ul class="rules">
+      <li><strong>Два дня на этап</strong><span>Квалификация и гонка проходят на выходных. Время и трассы смотри в календаре нужной лиги.</span></li>
+      <li><strong>Чистая гонка</strong><span>Столкновения разбирают стюарды. Штрафы выдаются по записи и видео из игры.</span></li>
+      <li><strong>Очки как в Формуле 1</strong><span>25, 18, 15, 12, 10, 8, 6, 4, 2, 1 за первые десять мест. Дополнительное очко за быстрый круг.</span></li>
+      <li><strong>Один пилот на один номер</strong><span>Выбери номер и команду при регистрации. Для каждой команды ведётся свой зачёт.</span></li>
+    </ul>
+    <div class="reg-box">
+      <div><b>Регламент лиги</b><span>Полный свод правил в Google Документе.</span></div>
+      <a class="btn main reg" href="#" target="_blank" rel="noopener">Открыть регламент</a>
+    </div>
+  </div></section>
+
+  <section id="paddock"><div class="wrap">
+    <h2>Паддок</h2>
+    <p class="sub">Разминка перед стартом: проверь реакцию, узнай факт и вспомни флаги.</p>
+    <div class="pgrid">
+      <div class="card">
+        <h3>⏱ Тест реакции</h3>
+        <p>Дождись, пока погаснут все огни, и жми. Фальстарт — штраф!</p>
+        <div class="rb" id="rb" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+        <div id="rres" aria-live="polite">— мс</div>
+        <div id="rbest"></div>
+        <button class="btn main" id="rbtn" type="button" style="font:inherit;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.06em">Старт</button>
+      </div>
+      <div class="card">
+        <h3>🏁 Факт из паддока</h3>
+        <p class="fact" id="fact"></p>
+        <button class="btn alt" id="fbtn" type="button" style="background:none;color:inherit;font:inherit;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:.06em">Ещё факт</button>
+        <h3 style="margin-top:22px">Шины</h3>
+        <div class="tyres" aria-label="Составы шин"><span class="tyre" style="--c:#e10600" title="Мягкие">S</span><span class="tyre" style="--c:#ffd800" title="Средние">M</span><span class="tyre" style="--c:#f2f2f2" title="Жёсткие">H</span><span class="tyre" style="--c:#00a651" title="Дождевые">I</span><span class="tyre" style="--c:#1f6bff" title="Сильный дождь">W</span></div>
+      </div>
+    </div>
+    <div class="flags" aria-label="Флаги на трассе">
+      <div class="fl"><i class="fg"></i><div><b>Зелёный</b><span>Трасса свободна</span></div></div>
+      <div class="fl"><i class="fy"></i><div><b>Жёлтый</b><span>Опасность, обгон запрещён</span></div></div>
+      <div class="fl"><i class="fb"></i><div><b>Синий</b><span>Пропусти лидера</span></div></div>
+      <div class="fl"><i class="fw"></i><div><b>Белый</b><span>Медленная машина впереди</span></div></div>
+      <div class="fl"><i class="fr"></i><div><b>Красный</b><span>Гонка остановлена</span></div></div>
+      <div class="fl"><i class="fc"></i><div><b>Клетчатый</b><span>Финиш</span></div></div>
+    </div>
+  </div></section>
+
+  <section id="calendar"><div class="wrap">
+    <h2>Календарь сезона</h2>
+    <p class="sub" id="calsub">18 этапов.</p>
+    <div class="lg" data-lg role="tablist" aria-label="Лига"><button role="tab" data-l="f1" aria-selected="true">F1</button><button role="tab" data-l="f2" aria-selected="false">F2</button><button role="tab" data-l="f3" aria-selected="false">F3</button></div>
+    <ol class="cal" id="cal"></ol>
+    <div class="weekend" id="weekend"></div>
+  </div></section>
+
+  <section id="standings"><div class="wrap">
+    <h2>Зачёт сезона</h2>
+    <p class="sub" id="stsub">Зачёт сезона.</p>
+    <div class="lg" data-lg role="tablist" aria-label="Лига"><button role="tab" data-l="f1" aria-selected="true">F1</button><button role="tab" data-l="f2" aria-selected="false">F2</button><button role="tab" data-l="f3" aria-selected="false">F3</button></div>
+    <div class="champ" id="champ" hidden></div>
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-t="pilots">Пилоты</button>
+      <button role="tab" aria-selected="false" data-t="teams">Команды</button>
+    </div>
+    <div class="scroll" id="pilots">
+      <table><caption hidden>Личный зачёт</caption>
+        <thead><tr><th>Место</th><th>№</th><th>Пилот</th><th>Команда</th><th class="pts">Очки</th></tr></thead>
+        <tbody id="tbl"></tbody></table>
+    </div>
+    <div class="scroll" id="teams" hidden>
+      <table><caption hidden>Зачёт команд</caption>
+        <thead><tr><th>Место</th><th>Команда</th><th class="pts">Очки</th></tr></thead>
+        <tbody id="tblt"></tbody></table>
+    </div>
+  </div></section>
+
+  <section id="join"><div class="wrap">
+    <h2>Как вступить</h2>
+    <p class="sub">Три шага до стартовой решётки.</p>
+    <ol class="steps">
+      <li><p>Зайди на сервер RLR в Discord и прочитай регламент.</p></li>
+      <li><p>Напиши в канале регистрации свой игровой ник и платформу: ПК, PlayStation или Xbox.</p></li>
+      <li><p>Выбери номер и команду, затем пройди пробный заезд с администрацией.</p></li>
+    </ol>
+    <a class="btn main discord" href="#">Вступить в Discord</a>
+  </div></section>
+</main>
+
+<footer>
+  <div class="check" aria-hidden="true" style="margin-bottom:26px"></div>
+  <div class="wrap">
+    <svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><use href="#mark"/></svg>
+    <span>Red Light Racing League F1 2020</span>
+    <nav aria-label="Ссылки"><a class="discord" href="#">Discord</a><a class="reg" href="#" target="_blank" rel="noopener">Регламент</a></nav>
+  </div>
+  <div class="wm wm-bot" aria-hidden="true"><div class="track"><div class="half"><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span></div><div class="half"><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span><span>Создано @elnano14</span></div></div></div>
+</footer>
+
+<script>
+var DISCORD_URL = "https://discord.gg/QMBM8xpKD";
+var REG_URL = "https://docs.google.com/document/d/1fL-xOoku_Qo7yj9HZGVNFZMNwujTF2o6HvXO7fB2Sz0/edit?usp=sharing";
+document.querySelectorAll("a.discord").forEach(function(a){a.href=DISCORD_URL;a.target="_blank";a.rel="noopener";});
+document.querySelectorAll("a.reg").forEach(function(a){a.href=REG_URL;});
+
+var THEMES = {
+  f1:{red:"#e3001b",hot:"#ff2a3d",deep:"#6b000e",rgb:"227,0,27"},
+  f2:{red:"#1f6bff",hot:"#4d8dff",deep:"#0a2a6b",rgb:"31,107,255"},
+  f3:{red:"#ff7a00",hot:"#ff9a2e",deep:"#6b3000",rgb:"255,122,0"}
+};
+var colors = {"Ferrari":"#dc0000","Renault":"#ffd800","Alfa Romeo":"#b3122a","McLaren":"#ff8000","Red Bull Racing":"#3671c6","Mercedes":"#00d2be","Williams":"#00a0de","Racing Point":"#f596c8","AlphaTauri":"#c8d4e3","Haas F1 Team":"#b6babd",
+  "Prema Racing":"#ff3b3b","DAMS":"#2ec4a0","MP Motorsport":"#ff8a1f","Uni-Virtuosi Racing":"#f5c518","Campos Racing":"#e6e6e6","ART Grand Prix":"#b3122a","Charouz Racing System":"#a855f7","Hitech Grand Prix":"#cfd4da","Carlin":"#3b82f6","BWT HWA Racelab":"#ec4899","Trident":"#3b6ff6"};
+function dot(t){return '<i class="dot" style="background:'+(colors[t]||"#888")+'"></i>';}
+function esc(x){return String(x).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+
+/* Запасные данные: показываются, если файл standings.json недоступен */
+var FALLBACK = {"updated": "30.10.2026", "leagues": {"f1": {"title": "F1", "weekend": [["Суббота", "Квалификация", "18:30"], ["Воскресенье", "Гонка", "18:30"]], "races": [["Австралия", "Мельбурн, Альберт-парк", 1], ["Бахрейн", "Сахир, Bahrain International Circuit", 1], ["Россия", "Сочи, Автодром", 1], ["Азербайджан", "Баку, Baku City Circuit", 1], ["Япония", "Судзука", 1], ["Монако", "Монте-Карло, Circuit de Monaco", 1], ["Канада", "Монреаль, Circuit Gilles Villeneuve", 1], ["Австрия", "Шпильберг, Red Bull Ring", 1], ["Испания", "Барселона, Каталунья", 1], ["Великобритания", "Сильверстоун", 1], ["Нидерланды", "Зандфорт", 1], ["Бразилия", "Сан-Паулу, Интерлагос", 1], ["Италия", "Монца, Autodromo Nazionale", 1], ["Венгрия", "Будапешт, Hungaroring", 0], ["Бельгия", "Спа-Франкоршам", 0], ["Сингапур", "Marina Bay Street Circuit", 0], ["Техас", "Остин, Circuit of The Americas", 0], ["Абу-Даби", "Яс Марина", 0]], "drivers": [[36, "Mark Peruanskiy", "McLaren", 160], [41, "Shalom Arestanty", "Ferrari", 123], [12, "Mikhail Kireev", "Alfa Romeo", 95], [51, "Nico Huges", "Renault", 95], [3, "Anvar Abdrakhmanov", "Renault", 73], [4, "Snazz kash", "Williams", 57], [15, "Pahan Punkovich", "Ferrari", 44], [6, "Nicolas Mazepin (резерв)", "Red Bull Racing", 24], [87, "Mark Zavidov", "AlphaTauri", 16], [2, "Elio Vortex", "McLaren", 13], [50, "Misha Lukin", "AlphaTauri", 8], [22, "Botin Oleg", "Williams", 7], [59, "Yaroslav Geda (резерв)", "Alfa Romeo", 6], [20, "Temuijin Shin", "Red Bull Racing", 4], [24, "Marshall Petrovich (резерв)", "Williams", 2], [78, "Miles Winter (резерв)", "Mercedes", 0], [33, "Kimi Tilibantonelli", "Racing Point", 0], [21, "Daniel Kuramaev", "Haas F1 Team", 0], [77, "Jolion Enhoi (резерв)", "Ferrari", 0], [26, "Dmitro Nightstappen (резерв)", "Red Bull Racing", 0], [1, "Kyle Crane (резерв)", "Mercedes", 0], [29, "Danila Shwartz (резерв)", "McLaren", 0], [58, "Max Nebel (резерв)", "Ferrari", 0], [10, "Markus Vincent (резерв)", "AlphaTauri", 0], [64, "Aust Duches", "Alfa Romeo", 0]], "teams": [["Ferrari", 217], ["Renault", 211], ["Alfa Romeo", 191], ["McLaren", 182], ["Red Bull Racing", 173], ["Mercedes", 166], ["Williams", 85], ["Racing Point", 56], ["AlphaTauri", 36], ["Haas F1 Team", 15]]}, "f2": {"title": "F2", "weekend": [["", "Квалификация", "17:30"], ["Воскресенье", "Гонка", "17:30"]], "races": [["Бахрейн", "Gulf Air", 1], ["Россия", "Сочи", 1], ["Австрия", "Red Bull Ring", 1], ["Италия", "Монца", 1], ["Великобритания", "Сильверстоун", 1], ["Испания", "Барселона", 1], ["Мексика", "Mexico City", 1], ["Нидерланды", "Зандфорт", 1], ["Монако", "Монако", 1], ["Бразилия", "Сан-Паулу", 1], ["Бельгия", "Спа-Франкоршам", 1], ["Азербайджан", "Баку", 1], ["Япония", "Сузука", 0], ["Абу-Даби", "Яс Марина", 0]], "drivers": [[42, "Andrey Kaban", "Uni-Virtuosi Racing", 219], [29, "Daniel Webber", "Trident", 201], [16, "Charles Leclerc", "MP Motorsport", 62], [32, "Yaroslav Dubyansky", "DAMS", 47], [5, "Sebastian Vettel", "Campos Racing", 32], [97, "Stasik Maksimov", "Charouz Racing System", 30], [2, "Ilia Ulanov", "Carlin", 30], [27, "Daniil Klepinin", "Charouz Racing System", 19], [17, "Jack Ocul", "Campos Racing", 18], [47, "Nazar Alekseenko", "Prema Racing", 15], [88, "Gabriello Portofino", "Carlin", 12], ["–", "Ilya Sem", "BWT HWA Racelab", 0], [54, "Patrik Tarasiuk", "Trident", 0], [38, "Senya Hushchak", "Uni-Virtuosi Racing", 0], [11, "Nikita Ohapkin", "DAMS", 0], [29, "Timur Mogg", "BWT HWA Racelab", 0], ["–", "Nikita Niyazov", "ART Grand Prix", 0], ["–", "Lance Stroll", "ART Grand Prix", 0]], "teams": [["Uni-Virtuosi Racing", 316], ["Trident", 171], ["MP Motorsport", 125], ["Campos Racing", 111], ["DAMS", 107], ["BWT HWA Racelab", 87], ["ART Grand Prix", 86], ["Carlin", 83], ["Charouz Racing System", 76], ["Prema Racing", 45]]}, "f3": {"title": "F3", "weekend": [["Суббота", "Квалификация", "15:00"], ["Воскресенье", "Гонка", "15:00"]], "races": [["Китай", "Шанхай", 1], ["Азербайджан", "Баку", 1], ["Япония", "Сузука", 1], ["Италия", "Монза", 1], ["Канада", "Канада", 1], ["Великобритания", "Сильверстоун", 1], ["Бельгия", "Спа", 1], ["Нидерланды", "Зандвурт", 1], ["США", "Соединённые Штаты", 1], ["Бразилия", "Бразилия", 1], ["Бахрейн", "Бахрейн", 1], ["Абу-Даби", "ОАЭ", 1]], "drivers": [[81, "Lance Stroll", "Prema Racing", 139], [27, "Nikita Niyazov", "Prema Racing", 136], [29, "Timur Mogg", "Uni-Virtuosi Racing", 78], [71, "Serafim Mifores", "Charouz Racing System", 51], [34, "Alan Serikkhan", "Campos Racing", 46], [56, "Senya Hushchak", "MP Motorsport", 40], ["–", "Bogdan Strolov", "Carlin", 36], [55, "Pon Pensenna", "DAMS", 29], [15, "Daber Retzz", "MP Motorsport", 26], [28, "Daniil Bytyrakov", "Uni-Virtuosi Racing", 21], ["–", "Dean Winchester", "ART Grand Prix", 16], [32, "Orex Bayramzade", "Hitech Grand Prix", 12], [38, "Lando Normis", "BWT HWA Racelab", 6], ["–", "Maxim Ananasov", "ART Grand Prix", 2], [46, "Acetto Rossi", "Trident", 2], [78, "David Martinez", "Campos Racing", 1], ["–", "Carl Acosta", "Hitech Grand Prix", 0], [22, "Jenson Button", "DAMS", 0], [63, "Azim Aslanov", "Charouz Racing System", 0], [23, "Marco Miller", "Carlin", 0], [99, "Yan Boyko", "BWT HWA Racelab", 0]], "teams": [["Prema Racing", 275], ["DAMS", 172], ["MP Motorsport", 139], ["Uni-Virtuosi Racing", 120], ["Campos Racing", 119], ["ART Grand Prix", 95], ["Charouz Racing System", 91], ["Hitech Grand Prix", 75], ["Carlin", 70], ["BWT HWA Racelab", 33], ["Trident", 8]]}}};
+
+var DATA = FALLBACK, cur = "f1";
+
+function applyTheme(){
+  var t = THEMES[cur], r = document.documentElement.style;
+  r.setProperty("--red",t.red); r.setProperty("--hot",t.hot); r.setProperty("--deep",t.deep); r.setProperty("--rgb",t.rgb);
+  document.querySelectorAll("[data-lg] button").forEach(function(b){b.setAttribute("aria-selected",b.dataset.l===cur);});
+}
+
+function draw0(){
+  var L = DATA.leagues[cur] || DATA.leagues.f1;
+  var races = L.races, n = races.length;
+  var done = races.filter(function(r){return +r[2];}).length;
+  var next = -1;
+  for (var i=0;i<n;i++){ if(!+races[i][2]){next=i;break;} }
+  var fin = next<0;
+  var cal = document.getElementById("cal");
+  cal.style.setProperty("--rows", Math.ceil(n/2));
+  cal.innerHTML = races.map(function(r,i){
+    var isDone = +r[2];
+    var cls = isDone ? "done" : (i===next ? "next" : "");
+    var st = isDone ? "Проведён" : (i===next ? "Следующий этап" : "Впереди");
+    var fn=FUN[r[0]]; return '<li class="'+cls+'"><span class="r">'+(i+1)+'</span><span class="g">'+(FLAG[r[0]]||"🏁")+" "+esc(r[0])+'<span class="t">'+esc(r[1])+'</span>'+(fn?'<span class="f">'+fn+'</span>':"")+'</span><span class="d">'+(isDone?"🏁 ":(i===next?"🚦 ":""))+st+'</span></li>';
+  }).join("");
+  document.getElementById("calsub").textContent = L.title+": "+n+" этапов. "+(next<0 ? "Сезон завершён." : "Провели "+done+", на очереди "+races[next][0]+".");
+  document.getElementById("weekend").innerHTML = L.weekend.map(function(w){
+    return '<div>'+(w[0]?'<small>'+esc(w[0])+'</small>':'')+'<b>'+esc(w[1])+'</b><em>'+esc(w[2])+'</em></div>';
+  }).join("");
+
+  var last = -1;
+  for (var j=0;j<n;j++){ if(+races[j][2]) last=j; }
+  var upd = DATA.updated ? '<span class="upd">Обновлено: '+esc(DATA.updated)+'</span>' : "";
+  document.getElementById("stsub").innerHTML = L.title+": после "+done+" этапов"+(last>=0?", последний был: "+esc(races[last][0]):"")+"."+upd;
+
+  var drivers = L.drivers.slice().sort(function(a,b){return b[3]-a[3];});
+  document.getElementById("tbl").innerHTML = drivers.map(function(d,i){
+    return '<tr'+(fin&&i===0?' class="champ-row"':'')+'><td class="n">'+(fin&&i===0?"🏆":(MED[i]||(i+1)))+'</td><td class="no">'+esc(d[0])+'</td><td>'+esc(d[1])+(fin&&i===0?'<span class="cb">Чемпион</span>':'')+'</td><td>'+dot(d[2])+esc(d[2])+'</td><td class="pts">'+esc(d[3])+'</td></tr>';
+  }).join("");
+  var teams = L.teams.slice().sort(function(a,b){return b[1]-a[1];});
+  document.getElementById("tblt").innerHTML = teams.map(function(t,i){
+    return '<tr'+(fin&&i===0?' class="champ-row"':'')+'><td class="n">'+(fin&&i===0?"🏆":(MED[i]||(i+1)))+'</td><td>'+dot(t[0])+esc(t[0])+(fin&&i===0?'<span class="cb">Чемпион</span>':'')+'</td><td class="pts">'+esc(t[1])+'</td></tr>';
+  }).join("");
+}
+
+var shown={};
+function champ(){
+  var L=DATA.leagues[cur]||DATA.leagues.f1,el=document.getElementById("champ");
+  var fin=L.races.length>0&&L.races.every(function(r){return +r[2];});
+  if(!fin){el.hidden=true;return;}
+  var d=L.drivers.slice().sort(function(a,b){return b[3]-a[3];})[0],t=L.teams.slice().sort(function(a,b){return b[1]-a[1];})[0];
+  el.innerHTML='<div class="cup">🏆</div><div><small>Чемпион '+esc(L.title)+' · сезон завершён</small><b>'+esc(d[1])+'</b><span>'+esc(d[2])+' · '+esc(d[3])+' очк.</span></div>'+(t?'<div style="margin-left:auto"><small>Кубок конструкторов</small><b>'+esc(t[0])+'</b><span>'+esc(t[1])+' очк.</span></div>':"");
+  el.hidden=false;
+  if(!shown[cur]){shown[cur]=1;if(typeof rain==="function"&&cur!=="f1"||shown.init){rain(["🏆","🏁","🍾","🥇"],30);}}
+}
+shown.init=0;
+function draw(){draw0();champ();}
+document.querySelectorAll("[data-lg] button").forEach(function(b){b.addEventListener("click",function(){
+  cur = b.dataset.l; applyTheme(); draw();
+});});
+
+/* Автообновление: сайт сам читает standings.json и перерисовывает зачёт каждые 60 секунд */
+function load(){
+  fetch("standings.json?t="+Date.now(),{cache:"no-store"})
+    .then(function(r){if(!r.ok)throw 0;return r.json();})
+    .then(function(d){ if(!d||!d.leagues||!d.leagues.f1) throw 0; DATA=d; draw(); })
+    .catch(function(){});
+}
+
+var MED=["🥇","🥈","🥉"];
+var FLAG={"Австралия":"🇦🇺","Бахрейн":"🇧🇭","Россия":"🇷🇺","Азербайджан":"🇦🇿","Япония":"🇯🇵","Монако":"🇲🇨","Канада":"🇨🇦","Австрия":"🇦🇹","Испания":"🇪🇸","Великобритания":"🇬🇧","Нидерланды":"🇳🇱","Бразилия":"🇧🇷","Италия":"🇮🇹","Венгрия":"🇭🇺","Бельгия":"🇧🇪","Сингапур":"🇸🇬","Техас":"🇺🇸","США":"🇺🇸","Абу-Даби":"🇦🇪","Мексика":"🇲🇽","Китай":"🇨🇳"};
+var FUN={"Австралия":"Круг вокруг озера","Бахрейн":"Пустыня и огни","Россия":"Вокруг олимпийских арен","Азербайджан":"Узкая улочка и длинная прямая","Япония":"Единственная «восьмёрка» с мостом","Монако":"Тесно. Обгонять почти нельзя","Канада":"Рядом «Стена чемпионов»","Австрия":"Короткий круг, быстрые секунды","Испания":"Любимая трасса для тестов","Великобритания":"Трасса на бывшем аэродроме","Нидерланды":"Виражи с наклоном","Бразилия":"Круг против часовой стрелки","Италия":"Храм скорости","Венгрия":"Почти Монако, только без стен","Бельгия":"Эо-Руж и непредсказуемая погода","Сингапур":"Ночь, прожекторы, жара","Техас":"Крутой подъём в первом повороте","США":"Крутой подъём в первом повороте","Абу-Даби":"Финиш в сумерках","Мексика":"Высоко в горах, воздух тоньше","Китай":"Трасса в форме иероглифа"};
+var FACTS=["Пит-стоп лучших команд занимает около двух секунд: за это время меняют четыре колеса.","В быстрых поворотах пилот испытывает перегрузку около 5g: голова будто весит в пять раз больше.","Очки в RLR те же, что в настоящей Формуле 1: 25 за победу, 18 за второе место и так далее.","За жаркую гонку пилот может потерять пару килограммов веса.","Рабочая температура гоночных шин около 100 °C: холодные шины не дают сцепления.","Болид разгоняется до 200 км/ч и останавливается меньше чем за пять секунд.","Руль болида похож на маленький компьютер: десятки кнопок и крутилок.","В ночной гонке в Сингапуре трассу освещают сотни прожекторов."];
+var RADIO=["Бокс, бокс. Меняем шины.","Шины живые, тяни ещё пару кругов.","Быстрый круг за тобой, не сбавляй.","Стюарды смотрят запись, всё чисто.","Сзади синий флаг, пропусти лидера.","Режим двигателя на максимум. Давай!","DRS открыт, атакуй на прямой.","Последний круг. Дотяни до финиша."];
+function rnd(n){return Math.floor(Math.random()*n);}
+function rain(list,n){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;for(var i=0;i<n;i++){var e=document.createElement("span");e.className="fall";e.textContent=list[rnd(list.length)];e.style.left=rnd(100)+"vw";e.style.setProperty("--t",(2+Math.random()*2.5)+"s");e.style.setProperty("--r",(rnd(720)-360)+"deg");e.style.animationDelay=(Math.random()*.8)+"s";document.body.appendChild(e);setTimeout(function(x){x.remove();},5200,e);}}
+function toast(t){var e=document.createElement("div");e.className="toast";e.textContent=t;document.body.appendChild(e);setTimeout(function(){e.remove();},1900);}
+
+/* радио команды */
+var ri=0,rt=document.getElementById("rtxt");
+setInterval(function(){ri=(ri+1)%RADIO.length;rt.style.opacity=0;setTimeout(function(){rt.textContent=RADIO[ri];rt.style.opacity=1;},350);},4200);
+
+/* прогресс-бар как круг по трассе */
+var pb=document.querySelector(".prog i"),pc=document.querySelector(".prog b");
+function prog(){var h=document.documentElement.scrollHeight-innerHeight,p=h>0?Math.min(1,Math.max(0,scrollY/h))*100:0;pb.style.width=p+"%";pc.style.left=p+"%";}
+addEventListener("scroll",prog,{passive:true});prog();
+
+/* повтор старта по клику на огни */
+document.getElementById("lights").addEventListener("click",function(){
+  var bs=this.querySelectorAll(".bulb");
+  bs.forEach(function(b){b.style.animation="none";b.style.background="";b.style.boxShadow="";});
+  void this.offsetWidth;
+  bs.forEach(function(b,i){var d=.3+Math.floor(i/2)*.5;b.style.animation="on .01s "+d+"s forwards,off .01s 2.9s forwards";});
+  setTimeout(function(){toast("LIGHTS OUT!");rain(["🏎️","💨"],10);},2950);
+});
+
+/* факты */
+var fi=rnd(FACTS.length),fe=document.getElementById("fact");fe.textContent=FACTS[fi];
+document.getElementById("fbtn").addEventListener("click",function(){var n;do{n=rnd(FACTS.length);}while(n===fi);fi=n;fe.textContent=FACTS[fi];});
+
+/* тест реакции */
+(function(){
+  var bs=document.querySelectorAll("#rb span"),btn=document.getElementById("rbtn"),res=document.getElementById("rres"),bestEl=document.getElementById("rbest");
+  var st=0,t0=0,tm=[],best=null;
+  function lit(n){bs.forEach(function(b,i){b.classList.toggle("on",i<n);});}
+  function clr(){tm.forEach(clearTimeout);tm=[];}
+  function rate(ms){return ms<200?"Уровень Формулы 1! 🚀":ms<260?"Отлично, место на решётке есть 🏁":ms<350?"Нормально, но можно быстрее":"Пилот, проснись! ☕";}
+  btn.addEventListener("click",function(){
+    if(st===0){
+      st=1;res.textContent="Ждём…";btn.textContent="Жми, как погаснут!";lit(0);
+      for(var i=1;i<=5;i++)(function(k){tm.push(setTimeout(function(){lit(k);},k*600));})(i);
+      tm.push(setTimeout(function(){lit(0);st=2;t0=performance.now();},3000+700+rnd(2200)));
+    }else if(st===1){
+      clr();lit(0);st=0;res.textContent="Фальстарт! +5 сек штрафа 🚩";btn.textContent="Ещё раз";
+    }else if(st===2){
+      var ms=Math.round(performance.now()-t0);st=0;res.textContent=ms+" мс";
+      if(best===null||ms<best){best=ms;}
+      bestEl.textContent=rate(ms)+" Лучший: "+best+" мс";btn.textContent="Ещё раз";
+      if(ms<250)rain(["🏁","🏆","🍾"],14);
+    }
+  });
+})();
+
+/* пасхалка: 5 кликов по логотипу */
+var lc=0,lt;document.querySelector(".brand").addEventListener("click",function(){lc++;clearTimeout(lt);lt=setTimeout(function(){lc=0;},1200);if(lc>=5){lc=0;toast("ЧЕКЕРД ФЛАГ!");rain(["🏁","🏆","🍾","🏎️","🥇"],40);}});
+
+applyTheme(); draw(); load();
+setInterval(load,60000);
+
+var tabs = document.querySelectorAll(".tabs button");
+tabs.forEach(function(b){b.addEventListener("click",function(){
+  tabs.forEach(function(x){var on = x===b; x.setAttribute("aria-selected",on); document.getElementById(x.dataset.t).hidden = !on;});
+});});
+</script>
+</body>
+</html>
