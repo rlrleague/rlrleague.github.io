@@ -1,0 +1,766 @@
+{
+ "updated": "11.11.2026",
+ "leagues": {
+  "f1": {
+   "title": "F1",
+   "weekend": [
+    [
+     "Суббота",
+     "Квалификация",
+     "18:30"
+    ],
+    [
+     "Воскресенье",
+     "Гонка",
+     "18:30"
+    ]
+   ],
+   "races": [
+    [
+     "Австралия",
+     "Мельбурн, Альберт-парк",
+     1
+    ],
+    [
+     "Бахрейн",
+     "Сахир, Bahrain International Circuit",
+     1
+    ],
+    [
+     "Россия",
+     "Сочи, Автодром",
+     1
+    ],
+    [
+     "Азербайджан",
+     "Баку, Baku City Circuit",
+     1
+    ],
+    [
+     "Япония",
+     "Судзука",
+     1
+    ],
+    [
+     "Монако",
+     "Монте-Карло, Circuit de Monaco",
+     1
+    ],
+    [
+     "Канада",
+     "Монреаль, Circuit Gilles Villeneuve",
+     1
+    ],
+    [
+     "Австрия",
+     "Шпильберг, Red Bull Ring",
+     1
+    ],
+    [
+     "Испания",
+     "Барселона, Каталунья",
+     1
+    ],
+    [
+     "Великобритания",
+     "Сильверстоун",
+     1
+    ],
+    [
+     "Нидерланды",
+     "Зандфорт",
+     1
+    ],
+    [
+     "Бразилия",
+     "Сан-Паулу, Интерлагос",
+     1
+    ],
+    [
+     "Италия",
+     "Монца, Autodromo Nazionale",
+     1
+    ],
+    [
+     "Венгрия",
+     "Будапешт, Hungaroring",
+     1
+    ],
+    [
+     "Бельгия",
+     "Спа-Франкоршам",
+     1
+    ],
+    [
+     "Сингапур",
+     "Marina Bay Street Circuit",
+     0
+    ],
+    [
+     "Техас",
+     "Остин, Circuit of The Americas",
+     0
+    ],
+    [
+     "Абу-Даби",
+     "Яс Марина",
+     0
+    ]
+   ],
+   "drivers": [
+    [
+     36,
+     "Mark Peruanskiy",
+     "McLaren",
+     197
+    ],
+    [
+     41,
+     "Shalom Arestanty",
+     "Ferrari",
+     163
+    ],
+    [
+     12,
+     "Mikhail Kireev",
+     "Alfa Romeo",
+     105
+    ],
+    [
+     51,
+     "Nico Huges",
+     "Renault",
+     122
+    ],
+    [
+     3,
+     "Anvar Abdrakhmanov",
+     "Renault",
+     73
+    ],
+    [
+     4,
+     "Snazz kash",
+     "Williams",
+     93
+    ],
+    [
+     15,
+     "Pahan Punkovich",
+     "Ferrari",
+     44
+    ],
+    [
+     6,
+     "Nicolas Mazepin (резерв)",
+     "Red Bull Racing",
+     24
+    ],
+    [
+     87,
+     "Mark Zavidov",
+     "AlphaTauri",
+     16
+    ],
+    [
+     2,
+     "Elio Vortex",
+     "McLaren",
+     13
+    ],
+    [
+     50,
+     "Misha Lukin",
+     "AlphaTauri",
+     26
+    ],
+    [
+     86,
+     "Botin Oleg",
+     "Williams",
+     15
+    ],
+    [
+     59,
+     "Yaroslav Geda (резерв)",
+     "Alfa Romeo",
+     6
+    ],
+    [
+     20,
+     "Temuijin Shin",
+     "Red Bull Racing",
+     4
+    ],
+    [
+     24,
+     "Marshall Petrovich (резерв)",
+     "Williams",
+     2
+    ],
+    [
+     78,
+     "Miles Winter (резерв)",
+     "Mercedes",
+     0
+    ],
+    [
+     33,
+     "Kimi Tilibantonelli",
+     "Racing Point",
+     0
+    ],
+    [
+     21,
+     "Daniel Kuramaev",
+     "Haas F1 Team",
+     0
+    ],
+    [
+     77,
+     "Jolion Enhoi (резерв)",
+     "Ferrari",
+     0
+    ],
+    [
+     26,
+     "Dmitro Nightstappen (резерв)",
+     "Red Bull Racing",
+     0
+    ],
+    [
+     1,
+     "Kyle Crane (резерв)",
+     "Mercedes",
+     0
+    ],
+    [
+     29,
+     "Danila Shwartz (резерв)",
+     "McLaren",
+     0
+    ],
+    [
+     58,
+     "Max Nebel (резерв)",
+     "Ferrari",
+     0
+    ],
+    [
+     10,
+     "Markus Vincent (резерв)",
+     "AlphaTauri",
+     0
+    ],
+    [
+     64,
+     "Aust Duches",
+     "Alfa Romeo",
+     6
+    ]
+   ],
+   "teams": [
+    [
+     "Ferrari",
+     257
+    ],
+    [
+     "Renault",
+     238
+    ],
+    [
+     "Alfa Romeo",
+     207
+    ],
+    [
+     "McLaren",
+     219
+    ],
+    [
+     "Red Bull Racing",
+     173
+    ],
+    [
+     "Mercedes",
+     166
+    ],
+    [
+     "Williams",
+     129
+    ],
+    [
+     "Racing Point",
+     56
+    ],
+    [
+     "AlphaTauri",
+     54
+    ],
+    [
+     "Haas F1 Team",
+     15
+    ]
+   ]
+  },
+  "f2": {
+   "title": "F2",
+   "weekend": [
+    [
+     "",
+     "Квалификация",
+     "17:30"
+    ],
+    [
+     "Воскресенье",
+     "Гонка",
+     "17:30"
+    ]
+   ],
+   "races": [
+    [
+     "Бахрейн",
+     "Gulf Air",
+     1
+    ],
+    [
+     "Россия",
+     "Сочи",
+     1
+    ],
+    [
+     "Австрия",
+     "Red Bull Ring",
+     1
+    ],
+    [
+     "Италия",
+     "Монца",
+     1
+    ],
+    [
+     "Великобритания",
+     "Сильверстоун",
+     1
+    ],
+    [
+     "Испания",
+     "Барселона",
+     1
+    ],
+    [
+     "Мексика",
+     "Mexico City",
+     1
+    ],
+    [
+     "Нидерланды",
+     "Зандфорт",
+     1
+    ],
+    [
+     "Монако",
+     "Монако",
+     1
+    ],
+    [
+     "Бразилия",
+     "Сан-Паулу",
+     1
+    ],
+    [
+     "Бельгия",
+     "Спа-Франкоршам",
+     1
+    ],
+    [
+     "Азербайджан",
+     "Баку",
+     1
+    ],
+    [
+     "Япония",
+     "Сузука",
+     1
+    ],
+    [
+     "Абу-Даби",
+     "Яс Марина",
+     1
+    ]
+   ],
+   "drivers": [
+    [
+     42,
+     "Andrey Kaban",
+     "Uni-Virtuosi Racing",
+     244
+    ],
+    [
+     29,
+     "Daniel Webber",
+     "Trident",
+     201
+    ],
+    [
+     16,
+     "Charles Leclerc",
+     "MP Motorsport",
+     62
+    ],
+    [
+     32,
+     "Orxan Bayramzade",
+     "Charouz Racing System",
+     49
+    ],
+    [
+     32,
+     "Yaroslav Dubyansky",
+     "DAMS",
+     47
+    ],
+    [
+     17,
+     "Jack Ocul",
+     "Campos Racing",
+     65
+    ],
+    [
+     44,
+     "Amir Trach",
+     "Charouz Racing System",
+     33
+    ],
+    [
+     2,
+     "Ilia Ulanov",
+     "Carlin",
+     30
+    ],
+    [
+     47,
+     "Nazar Alekseenko",
+     "Prema Racing",
+     25
+    ],
+    [
+     22,
+     "Ilya Sem",
+     "BWT HWA Racelab",
+     0
+    ],
+    [
+     25,
+     "Maxim Ananasov",
+     "Prema Racing",
+     0
+    ],
+    [
+     29,
+     "Timur Mogg",
+     "BWT HWA Racelab",
+     0
+    ],
+    [
+     "–",
+     "Nikita Niyazov",
+     "ART Grand Prix",
+     0
+    ]
+   ],
+   "teams": [
+    [
+     "Uni-Virtuosi Racing",
+     341
+    ],
+    [
+     "Trident",
+     171
+    ],
+    [
+     "Charouz Racing System",
+     158
+    ],
+    [
+     "Campos Racing",
+     158
+    ],
+    [
+     "MP Motorsport",
+     125
+    ],
+    [
+     "DAMS",
+     107
+    ],
+    [
+     "BWT HWA Racelab",
+     87
+    ],
+    [
+     "ART Grand Prix",
+     86
+    ],
+    [
+     "Carlin",
+     83
+    ],
+    [
+     "Prema Racing",
+     55
+    ]
+   ]
+  },
+  "f3": {
+   "title": "F3",
+   "weekend": [
+    [
+     "Суббота",
+     "Квалификация",
+     "15:00"
+    ],
+    [
+     "Воскресенье",
+     "Гонка",
+     "15:00"
+    ]
+   ],
+   "races": [
+    [
+     "Китай",
+     "Шанхай",
+     1
+    ],
+    [
+     "Азербайджан",
+     "Баку",
+     1
+    ],
+    [
+     "Япония",
+     "Сузука",
+     1
+    ],
+    [
+     "Италия",
+     "Монза",
+     1
+    ],
+    [
+     "Канада",
+     "Канада",
+     1
+    ],
+    [
+     "Великобритания",
+     "Сильверстоун",
+     1
+    ],
+    [
+     "Бельгия",
+     "Спа",
+     1
+    ],
+    [
+     "Нидерланды",
+     "Зандвурт",
+     1
+    ],
+    [
+     "США",
+     "Соединённые Штаты",
+     1
+    ],
+    [
+     "Бразилия",
+     "Бразилия",
+     1
+    ],
+    [
+     "Бахрейн",
+     "Бахрейн",
+     1
+    ],
+    [
+     "Абу-Даби",
+     "ОАЭ",
+     1
+    ]
+   ],
+   "drivers": [
+    [
+     81,
+     "Lance Stroll",
+     "Prema Racing",
+     139
+    ],
+    [
+     27,
+     "Nikita Niyazov",
+     "Prema Racing",
+     136
+    ],
+    [
+     29,
+     "Timur Mogg",
+     "Uni-Virtuosi Racing",
+     78
+    ],
+    [
+     71,
+     "Serafim Mifores",
+     "Charouz Racing System",
+     51
+    ],
+    [
+     34,
+     "Alan Serikkhan",
+     "Campos Racing",
+     46
+    ],
+    [
+     56,
+     "Senya Hushchak",
+     "MP Motorsport",
+     85
+    ],
+    [
+     "–",
+     "Bogdan Strolov",
+     "Carlin",
+     36
+    ],
+    [
+     55,
+     "Pon Pensenna",
+     "DAMS",
+     29
+    ],
+    [
+     15,
+     "Daber Retzz",
+     "MP Motorsport",
+     26
+    ],
+    [
+     28,
+     "Daniil Bytyrakov",
+     "Uni-Virtuosi Racing",
+     21
+    ],
+    [
+     "–",
+     "Dean Winchester",
+     "ART Grand Prix",
+     16
+    ],
+    [
+     32,
+     "Orex Bayramzade",
+     "Hitech Grand Prix",
+     12
+    ],
+    [
+     38,
+     "Lando Normis",
+     "BWT HWA Racelab",
+     6
+    ],
+    [
+     "–",
+     "Maxim Ananasov",
+     "ART Grand Prix",
+     2
+    ],
+    [
+     46,
+     "Acetto Rossi",
+     "Trident",
+     2
+    ],
+    [
+     78,
+     "David Martinez",
+     "Campos Racing",
+     1
+    ],
+    [
+     "–",
+     "Carl Acosta",
+     "Hitech Grand Prix",
+     0
+    ],
+    [
+     22,
+     "Jenson Button",
+     "DAMS",
+     0
+    ],
+    [
+     63,
+     "Azim Aslanov",
+     "Charouz Racing System",
+     0
+    ],
+    [
+     23,
+     "Marco Miller",
+     "Carlin",
+     0
+    ],
+    [
+     99,
+     "Yan Boyko",
+     "BWT HWA Racelab",
+     0
+    ]
+   ],
+   "teams": [
+    [
+     "Prema Racing",
+     275
+    ],
+    [
+     "DAMS",
+     172
+    ],
+    [
+     "MP Motorsport",
+     139
+    ],
+    [
+     "Uni-Virtuosi Racing",
+     120
+    ],
+    [
+     "Campos Racing",
+     119
+    ],
+    [
+     "ART Grand Prix",
+     95
+    ],
+    [
+     "Charouz Racing System",
+     91
+    ],
+    [
+     "Hitech Grand Prix",
+     75
+    ],
+    [
+     "Carlin",
+     70
+    ],
+    [
+     "BWT HWA Racelab",
+     33
+    ],
+    [
+     "Trident",
+     8
+    ]
+   ]
+  }
+ }
+}
